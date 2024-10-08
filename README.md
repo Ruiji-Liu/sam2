@@ -1,3 +1,12 @@
+#New update in this repo
+check [video_predictor.ipynb](https://github.com/Ruiji-Liu/sam2/blob/main/notebooks/video_predictor.ipynb) for modified code. To run the code, first extract the JPEG frames using ffmpeg as follows:
+```bash
+ffmpeg -i <your_video>.mp4 -q:v 2 -start_number 0 <output_dir>/'%05d.jpg'
+```
+Accumulate the output frames with mask as follows: 
+```bash
+ffmpeg -framerate 30 -i <output_dir>/'%05d.jpg -c:v libx264 -pix_fmt yuv420p output.mp4
+```
 # SAM 2: Segment Anything in Images and Videos
 
 **[AI at Meta, FAIR](https://ai.meta.com/research/)**
